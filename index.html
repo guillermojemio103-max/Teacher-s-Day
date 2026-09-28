@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Ma'am Jay-Ann 💗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Night sky -->
+  <div class="night"></div>
+
+  <!-- Raining Flowers -->
+  <div class="flower-rain"></div>
+
+  <div class="container">
+
+    <!-- Envelope Area -->
+    <div class="envelope-wrapper">
+      <div class="lid front"></div>
+      <div class="lid back"></div>
+      <div class="envelope-base"></div>
+
+      <!-- Letter that comes out -->
+      <div class="letter">
+        <div class="letter-content">
+          <h3>💗 Dear Ma'am Jay-Ann 💗</h3>
+
+          <div class="message">
+            <p>Hello po, it's me Jem!</p>
+            <p>Happy Teachers Day po sa inyo!</p>
+            <br>
+            <p>Thank you po for being such a wonderful, kind, and patient teacher to me.</p>
+            <p>You don't just teach lessons — you inspire me to do my best and believe in myself.</p>
+            <p>Your guidance stays with me, and I am so grateful for every advice and encouragement you give.</p>
+            <br>
+            <p>May you be blessed with good health, joy, and all the happiness you truly deserve.</p>
+            <p>Thank you po for everything, Ma'am! 🥰</p>
+            <br>
+            <p class="sign">With love and respect,<br><strong>Jem 💝</strong></p>
+          </div>
+
+          <div class="song-section">
+            <h4>🎵 Dancing Queen - ABBA 🎵</h4>
+            <audio controls>
+              <source src="music.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <button id="openBtn">Open 💌</button>
+      <button id="closeBtn">Close 💌</button>
+    </div>
+
+  </div>
+
+  <script>
+    const openBtn = document.getElementById('openBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const envelopeWrapper = document.querySelector('.envelope-wrapper');
+    const lidFront = document.querySelector('.lid.front');
+    const lidBack = document.querySelector('.lid.back');
+
+    openBtn.addEventListener('click', () => {
+      envelopeWrapper.classList.add('open');
+      lidFront.style.transform = 'rotateX(180deg)';
+      lidFront.style.zIndex = '1';
+      lidBack.style.opacity = '0';
+      openBtn.style.display = 'none';
+      closeBtn.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      envelopeWrapper.classList.remove('open');
+      lidFront.style.transform = 'rotateX(0deg)';
+      lidFront.style.zIndex = '4';
+      lidBack.style.opacity = '1';
+      closeBtn.style.display = 'none';
+      openBtn.style.display = 'block';
+    });
+
+    // Stars
+    const night = document.querySelector('.night');
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('span');
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      night.appendChild(star);
+    }
+
+    // Raining Flowers
+    const flowerRain = document.querySelector('.flower-rain');
+    const flowerTypes = ['🌸', '🌷', '🌺', '🌹', '💐', '🌼'];
+    for (let i = 0; i < 60; i++) {
+      const flower = document.createElement('span');
+      flower.innerText = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+      flower.style.left = Math.random() * 100 + '%';
+      flower.style.animationDuration = (Math.random() * 6 + 4) + 's';
+      flower.style.animationDelay = Math.random() * 5 + 's';
+      flower.style.fontSize = (Math.random() * 18 + 16) + 'px';
+      flowerRain.appendChild(flower);
+    }
+  </script>
+
+</body>
+</html>
